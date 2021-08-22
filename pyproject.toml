@@ -1,0 +1,15 @@
+[tool]
+[tool.poetry]
+name = "stardate-goddard"
+version = "0.0.1"
+description = "Converts date time strings into Star Trek TNG star dates."
+classifiers = ["Programming Language :: Python :: 3", "License :: OSI Approved :: MIT License", "Operating System :: OS Independent"]
+homepage = "https://github.com/Goddard/stardate"
+authors = ["Ryein Goddard <ryein@live.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "*"
+
+[tool.poetry.scripts]
+stardate = 'stardate.Stardate:main'
