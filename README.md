@@ -8,11 +8,11 @@ own changes.
 
 ## Usage
 
-On the command line, run `stardate` to get the current date as a stardate, or
-pass in the date in YYYY-MM-DD format to get the stardate for a given date:
+On the command line, run `stardate -d YYYY-MM-DD` to get the stardate for a
+given date:
 
 ```console
-$ stardate -d 1999-12-24
+$ stardate -d 2378-04-06
 53443.5
 ```
 
@@ -23,10 +23,8 @@ stardate:
 
 ```pycon
 >>> from stardate_goddard import get_stardate
->>> get_stardate()
-75108.2
->>> get_stardate('1999-12-24')
-53443.5
+>>> get_stardate('2378-04-06')
+54867.5
 ```
 
 ## Roadmap
@@ -37,8 +35,8 @@ stardate:
 
 ## License
 
-This project I made is open source. Feel free to use it and make changes.
+MIT: see [LICENSE](LICENSE)
 
-## Credit
+## Credits
 
 If you use this project please include my information. Appreciate it.

@@ -1,3 +1,7 @@
+# Calculations taken from stardate script by Phillip L. Sublett
+# <TrekMaster@TrekGuide.com>
+# http://trekguide.com/Stardates.htm#TNG
+
 import math
 from dateutil.parser import parse
 from datetime import datetime
@@ -5,25 +9,22 @@ import argparse
 import time
 
 
-def get_stardate(date=None, verbose=False):
-    # Calculations taken from stardate script by Phillip L. Sublett
-    # <TrekMaster@TrekGuide.com>
-    # http://trekguide.com/Stardates.htm#TNG
-    requested_date = datetime.now() if date is None else parse(date)
-    origin_date = parse("2318-07-05T00:00:00-00:00")
+def get_stardate(date, verbose=False):
+    requested_date = parse(date)
+    origin_date = parse("2318-07-05T12:00:00-00:00")
 
     if verbose:
-        print(f"Start Date : " + requested_date.strftime("%Y-%m-%d %H:%M:%S"))
-        print(f"Origin Date : " + origin_date.strftime("%Y-%m-%d %H:%M:%S"))
-    stardate = time.mktime(requested_date.timetuple()) - time.mktime(
-        origin_date.timetuple()
-    )
+        print(f'Start date: {requested_date.strftime("%Y-%m-%d %H:%M:%S")}')
+        print(f'Origin date: {origin_date.strftime("%Y-%m-%d %H:%M:%S")}')
+    begin = time.mktime(requested_date.timetuple())*1000
+    end = time.mktime(origin_date.timetuple())*1000
+    stardate = begin - end
     if verbose:
-        print(f"Selection Date - Origin Date = {str(stardate)}")
-    stardate = stardate / 34367.0564
+        print(f"Selection date - origin date = {str(stardate)}")
+    stardate = stardate / 34367056.4
     stardate = math.floor(stardate * 10) / 10
     if verbose:
-        print(f"Previous Value / 34367056.4 and floored = {str(stardate)}")
+        print(f"Previous value / 34367056.4 and floored = {str(stardate)}")
     return stardate
 
 
@@ -41,11 +42,8 @@ def main():
         help="The date to convert to stardate, format YYYY-MM-DD",
         metavar="D",
         type=str,
-        default=None,
+        required=True,
     )
     args = parser.parse_args()
-
-    if args.verbose and args.date is None:
-        print("Using current date")
 
     print(get_stardate(args.date, args.verbose))
