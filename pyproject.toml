@@ -10,6 +10,10 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "*"
+python-dateutil = "^2.8.2"
 
 [tool.poetry.scripts]
-stardate = 'stardate.Stardate:main'
+stardate = 'stardate_goddard:main'
+
+[tool.poetry.dev-dependencies]
+autopep8 = "^1.5.7"

@@ -107,6 +107,6 @@ class StarDate():
             print(e)
 
 
-if __name__ == '__main__':
+def main():
     starDate = StarDate()
     starDate.main()
