@@ -15,7 +15,8 @@
 		"ms-python.vscode-pylance",
 		"bungcip.better-toml",
 		"redhat.vscode-yaml",
-		"davidanson.vscode-markdownlint"
+		"davidanson.vscode-markdownlint",
+		"sourcery.sourcery"
 	],
 	"postCreateCommand": "poetry install && pre-commit install",
 	"remoteUser": "vscode"
