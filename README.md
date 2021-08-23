@@ -11,8 +11,8 @@ own changes.
 On the command line, run `stardate` to get the current date as a stardate, or
 pass in the date in YYYY-MM-DD format to get the stardate for a given date:
 
-```sh
-$stardate -d 1999-12-24
+```console
+$ stardate -d 1999-12-24
 53443.5
 ```
 
@@ -21,7 +21,7 @@ Use the `-v` flag to get verbose outout including calculations.
 As a library, use the `get_stardate` function to return a given date as a
 stardate:
 
-```sh
+```pycon
 >>> from stardate_goddard import get_stardate
 >>> get_stardate()
 75108.2
